@@ -352,7 +352,8 @@ a {
                 display: flex;
                 width: 100%;
                 margin-bottom: 80px;
-
+                z-index: 999;
+                position: sticky;
                 img {
                     margin-left: -600px;
                     z-index: 99;
@@ -559,6 +560,7 @@ a {
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
+                position: sticky;
                 transition: .4s ease-in-out;
                 &:hover{
                     transform: scale(1.5);
