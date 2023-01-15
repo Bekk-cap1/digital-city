@@ -261,7 +261,6 @@ a {
                     width: 180px;
                     height: 240px;
                     border-radius: 5px;
-                    margin: 25px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -628,6 +627,26 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+      border-radius: 45px;
+    background: #B131DD;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #BE00FF;
+  }
+
 .main__lok {
     .container {
         position: relative;
@@ -643,7 +662,7 @@ input::-webkit-inner-spin-button {
         }
         .lok__inner {
             display: flex;
-            width: 1520px;
+            width: 1510px;
             padding: 0 200px;
             margin-top: 100px;
             margin-bottom: 100px;
