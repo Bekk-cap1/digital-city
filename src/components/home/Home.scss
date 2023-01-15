@@ -48,7 +48,9 @@ a {
                 .ul__proekt{
                     display: flex;
                     list-style-type: none;
-
+                    &:hover > :not(:hover){
+                        opacity: .4;
+                    }
                     li {
                         margin: 20px;
                         cursor: pointer;
@@ -269,8 +271,10 @@ a {
                     cursor: pointer;
                     transition: 0.4s ease-in-out;
                     &:hover{
-                        transform: scale(1.2deg);
                         transform: scale(1.2);
+                    }
+                    &:hover > :not(:hover){
+                        opacity:  .4;
                     }
                     
                     h4 {
@@ -396,7 +400,16 @@ a {
                 flex-wrap: wrap;
                 justify-content: space-around;
                 font-size: 22px;
-
+                transition: 0.4s ease-in-out;
+                &:hover{
+                    opacity: 1;
+                    p{
+                        opacity: 1;
+                    }
+                }
+                &:hover > :not(:hover){
+                    opacity: .4;
+                }
                 div {
                     display: flex;
                     align-items: center;
@@ -407,10 +420,13 @@ a {
                     border-radius: 5px;
                     margin: 30px 20px;
                     position: relative;
-
+                    cursor: pointer;
+                    &:hover{
+                        transform: scale(1.1);
+                        opacity: 1;
+                    }
                     p {
                         text-align: center;
-
                         &::before {
                             content: '01';
                             background-color: #B131DD;
@@ -763,12 +779,14 @@ input::-webkit-inner-spin-button {
                 display: flex;
                 list-style-type: none;
                 align-items: center;
-
+                &:hover > :not(:hover){
+                    opacity: .4;
+                }
                 li {
                     margin: 20px;
                     transition: 0.4s ease-in-out;
                     &:hover{
-                        transform: scale(1.2);
+                        transform: scale(1.1);
                     }
                 }
             }
