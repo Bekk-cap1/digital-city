@@ -20,6 +20,7 @@ import Insta from '../../assets/image/insta.png'
 import tg from '../../assets/image/tg.png'
 import yt from '../../assets/image/yt.png'
 import face from '../../assets/image/face.png'
+import Fiolet2 from '../../assets/image/fiolet2.png'
 import { Link } from 'react-router-dom'
 import Aos from 'aos'
 
@@ -63,40 +64,44 @@ function Home() {
                   <button>Регистрация</button>
                 </a>
 
-
-                <span className={value == true? 'span__menu spancha' : 'span__menu'} onClick={()=> setValue(!value)}>
-                  <b className='bir'></b>
-                  <b className='ikki'></b>
-                  <b className='uch'></b>
-                </span>
+                <label htmlFor="nav-button" className='nav-button' onClick={()=> setValue(!value)}>
+                  <span className={value == true? 'span__menu spancha' : 'span__menu'}></span>
+                </label>
 
 
 
               </div>
-                <ul className={value == true? 'ul__menu' : 'ul__none'} onClick={()=>setValue(!value)}>
-                <a href="#proekt">
-                    <li>О Проекте</li>
-                  </a>
-                  <a href="#napravleniye">
-                    <li>Направления</li>
-                  </a>
-                  <a href="#zadaci">
-                    <li>Задачи</li>
-                  </a>
-                  <a href="#result">
-                    <li>Результаты</li>
-                  </a>
-                  <a href="#contact">
-                    <li>Контакты</li>
-                  </a>
-                </ul>
+              <ul className={value == true? 'ul__menu' : 'ul__none'} onClick={()=>setValue(!value)}>
+              <a href="#proekt">
+                  <li>О Проекте</li>
+                </a>
+                <a href="#napravleniye">
+                  <li>Направления</li>
+                </a>
+                <a href="#zadaci">
+                  <li>Задачи</li>
+                </a>
+                <a href="#result">
+                  <li>Результаты</li>
+                </a>
+                <a href="#contact">
+                  <li>Контакты</li>
+                </a>
+                <select>
+                  <option>РУ</option>
+                </select>
+                <a href="#registratsiya">
+                  <button>Регистрация</button>
+                </a>
+              </ul>
             </div>
             <div className="header__hero" data-aos="fade-up" data-aos-duration="3000">
               <div>
                 <h1>“Girls in digital”</h1>
-                <p>Организация курсов повышения квалификации для девушек специалистов в сфере ИТ и подготовка высококвалифицированных кадров</p>
+                <p>Организация курсов повышения квалификации для девушек специалистов в сфере ИТ и подготовка высоко- квалифицированных кадров</p>
                 <button>Подробнее</button>
               </div>
+              <img src={Fiolet2} alt="" />
             </div>
           </div>
         </div>
@@ -160,12 +165,12 @@ function Home() {
               <div className='image__left' data-aos="flip-down">
                 <img src={Image3} alt="" />
                 <span>
-                  <p>Проект осуществляется в 4 этапа. Отбор участников проводится на основе специального анкетирования,собесодование а также анкетирование возможно на сайте проекта в режиме он-лайн. также собеседования с участием тренеров и специалистов. Привлечение участников будет производиться посредством рекламной кампании в ТВ, интернет и печатной СМИ.</p>
+                  <p>Проект осуществляется в 4 этапа. Отбор участников проводится на основе специального анкетирования, собесодование а также анкетирование возможно на сайте проекта в режиме он-лайн. также собеседования с участием тренеров и специалистов. Привлечение участников будет производиться посредством рекламной кампании в ТВ, интернет и печатной СМИ.</p>
                 </span>
               </div>
               <div className='image__right' data-aos="flip-up">
                 <span>
-                  <p>Рабочая группа будет состоят из высококвалифицированных тренеров-специалистов. Для полного информирования участников проекта требуется освещение через СМИ, разработка сайта и создание PR-группы. Рабочей группой будут разработаны модули, программы направлений  в проекте. </p>
+                  <p>Рабочая группа будет состоят из высококва - лифицированных тренеров-специалистов. Для полного информирования участников проекта требуется освещение через СМИ, разработка сайта и создание PR-группы. Рабочей группой будут разработаны модули, программы направлений  в проекте. </p>
                 </span>
                 <img src={Image4} alt=""/>
               </div>
