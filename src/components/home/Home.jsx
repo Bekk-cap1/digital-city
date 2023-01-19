@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.scss'
 import Logo from '../../assets/image/header__logo.png'
 import Image1 from '../../assets/image/image1.png'
@@ -27,6 +27,41 @@ import Aos from 'aos'
 function Home() {
   const [value, setValue] = useState(false)
   Aos.init()
+
+  const dataCateg = [
+    {
+      id:1,
+      lanRU: 'О проекте',
+      lanUZ: 'Proekt'
+    },
+    {
+      id:2,
+      lanRU: 'Направления',
+      lanUZ: 'Navigate'
+    },
+    {
+      id:3,
+      lanRU: 'Задачи',
+      lanUZ: 'Exems'
+    },
+    {
+      id:4,
+      lanRU: 'Результаты',
+      lanUZ: 'Result'
+    },
+    {
+      id:5,
+      lanRU: 'Контакты',
+      lanUZ: 'Contact'
+    }
+  ]
+  const langu = ((e)=>{
+    window.localStorage.setItem('lan', e.target.value)
+    setLan(window.localStorage.getItem('lan'))
+  })
+  const [lann, setLan] = useState(window.localStorage.getItem('lan') ? window.localStorage.getItem('lan') : 'RU')
+  const [id, setId] = useState(0)
+  
   return (
     <>
       <div>
@@ -41,24 +76,17 @@ function Home() {
               </Link>
               <div>
                 <ul className='ul__proekt'>
-                  <a href="#proekt">
-                    <li>О Проекте</li>
-                  </a>
-                  <a href="#napravleniye">
-                    <li>Направления</li>
-                  </a>
-                  <a href="#zadaci">
-                    <li>Задачи</li>
-                  </a>
-                  <a href="#result">
-                    <li>Результаты</li>
-                  </a>
-                  <a href="#contact">
-                    <li>Контакты</li>
-                  </a>
+                  {
+                    dataCateg?.map((e,i)=>(
+                      <a href={id ? `#${id}`: ''}>
+                        <li key={e.id} onClick={()=> setId(e.id)}>{e[`lan${lann}`]}</li>
+                      </a>
+                    ))
+                  }
                 </ul>
-                <select>
-                  <option>РУ</option>
+                <select onChange={langu}>
+                  <option value='RU'>РУ</option>
+                  <option value='UZ'>UZ</option>
                 </select>
                 <a href="#registratsiya">
                   <button>Регистрация</button>
@@ -71,24 +99,19 @@ function Home() {
 
 
               </div>
-              <ul className={value == true? 'ul__menu' : 'ul__none'} onClick={()=>setValue(!value)}>
-              <a href="#proekt">
-                  <li>О Проекте</li>
-                </a>
-                <a href="#napravleniye">
-                  <li>Направления</li>
-                </a>
-                <a href="#zadaci">
-                  <li>Задачи</li>
-                </a>
-                <a href="#result">
-                  <li>Результаты</li>
-                </a>
-                <a href="#contact">
-                  <li>Контакты</li>
-                </a>
-                <select>
-                  <option>РУ</option>
+              <ul className={value == true? 'ul__menu' : 'ul__none'} >
+                  {
+                    dataCateg?.map((e,i)=>(
+                      <a href={id ? `#${id}`: ''}>
+                        <li key={e.id} onClick={()=> {
+                          setId(e.id)
+                          setValue(!value)}}>{e[`lan${lann}`]}</li>
+                      </a>
+                    ))
+                  }
+                <select onChange={langu}>
+                  <option value='RU' >РУ</option>
+                  <option value='UZ'>UZ</option>
                 </select>
                 <a href="#registratsiya">
                   <button>Регистрация</button>
@@ -108,7 +131,7 @@ function Home() {
 
         <div className="main">
           <div className="container">
-            <div className="main__inner" id='proekt'>
+            <div className="main__inner" id='1'>
               <h2>О проекте</h2>
               <div className='image__left' data-aos="flip-up">
                 <img src={Image1} alt=""/>
@@ -123,7 +146,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="main__hero" id='napravleniye'>
+        <div className="main__hero" id='2'>
           <div className="container">
             <div className="hero__inner">
               <h2>Направлении</h2>
@@ -154,7 +177,7 @@ function Home() {
                   <img src={Mask6} alt="" />
                 </div>
               </div>
-              <button>Записаться</button>
+              <button><a href="#registratsiya">Записаться</a></button>
             </div>
           </div>
         </div>
@@ -178,7 +201,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="main__third" id='zadaci'>
+        <div className="main__third" id='3'>
           <div className="container">
             <div className="third__inner">
               <h2>Задачи</h2>
@@ -235,7 +258,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="main__result" id='result'>
+        <div className="main__result" id='4'>
           <div className="container">
             <div className="result__inner">
               <h2>Результаты</h2>
@@ -266,7 +289,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="main__lok" id='contact'>
+        <div className="main__lok" id='5'>
           <div className="container">
             <div className="lok__inner">
               <div className="lok__flex">
@@ -302,23 +325,18 @@ function Home() {
                 </div>
               </Link>
               <ul>
-                <a href="#proekt">
-                  <li>О Проекте</li>
-                </a>
-                <a href="#napravleniye">
-                  <li>Направления</li>
-                </a>
-                <a href="#result">
-                  <li>Результаты</li>
-                </a>
-                <a href="#contact">
-                  <li>Контакты</li>
-                </a>
+                {
+                  dataCateg?.map((e,i)=>(
+                    <a href={id ? `#${id}`: ''}>
+                      <li key={e.id} onClick={()=> setId(e.id)}>{e[`lan${lann}`]}</li>
+                    </a>
+                  ))
+                }
               </ul>
               <div className='ru'>
                 <span>
-                  <b>Уз</b>
-                  <b>Ру</b>
+                  <b onClick={()=> setLan('UZ')}>Уз</b>
+                  <b onClick={()=> setLan('RU')}>Ру</b>
                 </span>
                 <div>
                   <img className='insta' src={Insta} alt="" />
